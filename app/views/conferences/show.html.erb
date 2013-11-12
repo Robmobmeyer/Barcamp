@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @conference.name %>
+</p>
+
+<p>
+  <b>Organizer:</b>
+  <%= @conference.organizer %>
+</p>
+
+<p>
+  <b>Room:</b>
+  <%= @conference.room %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @conference.start_date %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @conference.start_time %>
+</p>
+
+<p>
+  <b>Session:</b>
+  <%= @conference.session %>
+</p>
+
+<%= link_to 'New Workshop', new_conference_workshop_path(conference_id: @conference.id) %>
+<%= link_to 'Edit', edit_conference_path(@conference) %> |
+<%= link_to 'Back', conferences_path %>
+
+

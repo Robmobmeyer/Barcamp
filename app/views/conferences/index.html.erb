@@ -1,0 +1,38 @@
+
+  
+
+<h1>Barcamp Konferenz</h1>
+
+<table>
+  <tr>
+    <th>Konferenz</th>
+    <th>Orgainsator</th>
+    <th>Raum</th>
+    <th>Datum</th>
+    <th>Uhrzeit</th>
+    <th>Session</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @conferences.each do |conference| %>
+  <tr>
+    <td><%= conference.name %></td>
+    <td><%= conference.organizer %></td>
+    <td><%= conference.room %></td>
+    <td><%= conference.start_date %></td>
+    <td><%= conference.start_time.strftime('%H:%M:%S') %></td>
+    <td><%= conference.session %></td>
+    <td><%= link_to 'Show', conference %></td>
+    <td><%= link_to 'Edit', edit_conference_path(conference) %></td>
+    <td><%= link_to 'Destroy', conference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+
+ 
+<% end %>
+</table>
+
+<br />
+
+<%= button_to 'New Conference', new_conference_path %>
