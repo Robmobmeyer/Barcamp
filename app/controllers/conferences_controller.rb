@@ -14,7 +14,8 @@ class ConferencesController < ApplicationController
   # GET /conferences/1.json
   def show
     @conference = Conference.find(params[:id])
-
+   # @workshops = Workshop.find_all_by_conference_id(params[:conference_id])
+    @workshops = Workshop.where(conference_id: params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @conference }

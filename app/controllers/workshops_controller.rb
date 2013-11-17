@@ -1,9 +1,11 @@
 class WorkshopsController < ApplicationController
+
+
   # GET /workshops
   # GET /workshops.json
   def index
     @workshops = Workshop.all
-@conference_id = params[:conference_id]
+    @conference_id = params[:conference_id]
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @workshops }
@@ -13,7 +15,8 @@ class WorkshopsController < ApplicationController
   # GET /workshops/1
   # GET /workshops/1.json
   def show
-    @workshop = Workshop.find(params[:id])
+       # @workshop = Workshop.where(conference_id: params[:id])
+   @workshop = Workshop.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @workshop }
@@ -54,8 +57,9 @@ class WorkshopsController < ApplicationController
   # PUT /workshops/1
   # PUT /workshops/1.json
   def update
+    
     @workshop = Workshop.find(params[:id])
-
+    #@workshop = Workshop.where(conference_id: params[:id])
     respond_to do |format|
       if @workshop.update_attributes(params[:workshop])
         format.html { redirect_to @workshop, notice: 'Workshop was successfully updated.' }

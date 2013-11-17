@@ -1,10 +1,10 @@
 Barcamp::Application.routes.draw do
-  resources :workshops, only: [:show, :create, :edit]
+  resources :workshops, only: [:show, :create, :edit, :update, :destroy]
 
 
   post "conferences/new"
   resources :conferences do 
-    resources :workshops, only: [:new, :index]
+    resources :workshops, only: [:new, :index, :show, :destroy]
   end
 
   # The priority is based upon order of creation:
