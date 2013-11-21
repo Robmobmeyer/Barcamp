@@ -1,11 +1,13 @@
 Barcamp::Application.routes.draw do
-  resources :workshops, only: [:show, :create, :edit, :update, :destroy]
+  #resources :workshops, only: [:show, :create, :edit, :update, :destroy, :index]
 
 
-  post "conferences/new"
+  #post "conferences/new"
   resources :conferences do 
-    resources :workshops, only: [:new, :index, :show, :destroy]
+    resources :workshops
   end
+
+  #get '/conferences/:id', to: 'conferences#show', as: 'conferences'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -3,6 +3,10 @@ require 'test_helper'
 class WorkshopsControllerTest < ActionController::TestCase
   setup do
     @workshop = workshops(:one)
+    @update = {
+      :talker       => 'TALKER TEST',
+      :name => 'NAME TEST',
+    }
   end
 
   test "should get index" do

@@ -22,7 +22,7 @@
     <td><%= conference.organizer %></td>
     <td><%= conference.room %></td>
     <td><%= conference.start_date %></td>
-    <td><%= conference.start_time.strftime('%H:%M:%S') %></td>
+    <td><%= conference.start_time %></td>
     <td><%= conference.session %></td>
     <td><%= link_to 'Show', conference %></td>
     <td><%= link_to 'Edit', edit_conference_path(conference) %></td>
@@ -35,4 +35,4 @@
 
 <br />
 
-<%= button_to 'New Conference', new_conference_path %>
+<%= link_to 'New Conference', new_conference_path %>

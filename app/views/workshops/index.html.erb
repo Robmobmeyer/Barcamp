@@ -14,7 +14,7 @@
     <td><%= workshop.name %></td>
     <td><%= workshop.talker %></td>
     <td><%= link_to 'Show', workshop %></td>
-    <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
+    <td><%= link_to 'Edit', edit_conference_workshop_path(workshop) %></td>
     <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>

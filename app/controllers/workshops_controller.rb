@@ -15,8 +15,10 @@ class WorkshopsController < ApplicationController
   # GET /workshops/1
   # GET /workshops/1.json
   def show
-       # @workshop = Workshop.where(conference_id: params[:id])
+      
    @workshop = Workshop.find(params[:id])
+   
+   #@workshops = Workshop.where(conference_id: params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @workshop }
@@ -36,6 +38,8 @@ class WorkshopsController < ApplicationController
   # GET /workshops/1/edit
   def edit
     @workshop = Workshop.find(params[:id])
+    #@workshop = Workshop.where(conference_id: params[:id])
+
   end
 
   # POST /workshops
@@ -45,7 +49,7 @@ class WorkshopsController < ApplicationController
 
     respond_to do |format|
       if @workshop.save
-        format.html { redirect_to @workshop, notice: 'Workshop was successfully created.' }
+        format.html { redirect_to conference_workshop_path(:conference_id => @workshop.conference_id, :id => @workshop.id), notice: 'Workshop was successfully created.' }
         format.json { render json: @workshop, status: :created, location: @workshop }
       else
         format.html { render action: "new" }
@@ -78,7 +82,7 @@ class WorkshopsController < ApplicationController
     @workshop.destroy
 
     respond_to do |format|
-      format.html { redirect_to workshops_url }
+      format.html { redirect_to conference_path(@workshop.conference_id) }
       format.json { head :no_content }
     end
   end
