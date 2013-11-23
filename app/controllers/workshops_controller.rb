@@ -71,7 +71,7 @@ Rails.logger.info "Alarm2"
     respond_to do |format|
       if @workshop.update_attributes(params[:workshop])
           Rails.logger.info "Alarm3"
-        format.html { redirect_to @workshop, notice: 'Workshop was successfully updated.' }
+        format.html { redirect_to conference_workshop_path(:conference_id => @workshop.conference_id, :id => @workshop.id), notice: 'Workshop was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -83,9 +83,11 @@ Rails.logger.info "Alarm2"
   # DELETE /workshops/1
   # DELETE /workshops/1.json
   def destroy
-
-    @workshops = Workshop.find(params[:id])
+    Rails.logger.info "Alarm1"
+    @workshop = Workshop.find(params[:id])
+        Rails.logger.info "Alarm2"
     @workshop.destroy
+        Rails.logger.info "Alarm3"
 
     respond_to do |format|
       format.html { redirect_to conference_path(@workshop.conference_id) }
