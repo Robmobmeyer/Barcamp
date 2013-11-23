@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @workshop %>
-<%= link_to 'Back', conferences_path %>
+<%= link_to 'Show', conference_workshop_path %>
+<%= link_to 'Back', conference_path(@workshop.conference_id) %>

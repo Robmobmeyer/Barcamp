@@ -39,9 +39,9 @@
   <tr>
     <td><%= workshop.name %></td>
     <td><%= workshop.talker %></td>
-    <td><%= link_to 'Show', conference_workshop_path(@workshops) %></td>
-    <td><%= link_to 'Edit', edit_conference_workshop_path(@workshops) %></td>
-    <td><%= link_to 'Destroy', conference_workshop_path(@workshops), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', conference_workshop_path(@conference, id: workshop.id) %></td>
+    <td><%= link_to 'Edit', edit_conference_workshop_path(@conference, id: workshop.id) %></td>
+    <td><%= link_to 'Destroy', conference_workshop_path(@conference, id: workshop.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 

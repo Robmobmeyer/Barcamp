@@ -17,8 +17,9 @@ class WorkshopsController < ApplicationController
   def show
       
    @workshop = Workshop.find(params[:id])
-   
-   #@workshops = Workshop.where(conference_id: params[:id])
+   @conference =  Workshop.find(params[:id])
+  
+   #@workshop = Workshop.where(conference_id: params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @workshop }
@@ -38,6 +39,7 @@ class WorkshopsController < ApplicationController
   # GET /workshops/1/edit
   def edit
     @workshop = Workshop.find(params[:id])
+    @conference =  Workshop.find(params[:id])
     #@workshop = Workshop.where(conference_id: params[:id])
 
   end
@@ -45,8 +47,9 @@ class WorkshopsController < ApplicationController
   # POST /workshops
   # POST /workshops.json
   def create
+    Rails.logger.info "Alarm1"
     @workshop = Workshop.new(params[:workshop])
-
+Rails.logger.info "Alarm2"
     respond_to do |format|
       if @workshop.save
         format.html { redirect_to conference_workshop_path(:conference_id => @workshop.conference_id, :id => @workshop.id), notice: 'Workshop was successfully created.' }
@@ -61,11 +64,13 @@ class WorkshopsController < ApplicationController
   # PUT /workshops/1
   # PUT /workshops/1.json
   def update
-    
+    Rails.logger.info "Alarm1"
     @workshop = Workshop.find(params[:id])
     #@workshop = Workshop.where(conference_id: params[:id])
+    Rails.logger.info "Alarm2"
     respond_to do |format|
       if @workshop.update_attributes(params[:workshop])
+          Rails.logger.info "Alarm3"
         format.html { redirect_to @workshop, notice: 'Workshop was successfully updated.' }
         format.json { head :no_content }
       else
@@ -78,7 +83,8 @@ class WorkshopsController < ApplicationController
   # DELETE /workshops/1
   # DELETE /workshops/1.json
   def destroy
-    @workshop = Workshop.find(params[:id])
+
+    @workshops = Workshop.find(params[:id])
     @workshop.destroy
 
     respond_to do |format|

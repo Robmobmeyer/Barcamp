@@ -36,7 +36,7 @@ class ConferencesController < ApplicationController
   # GET /conferences/1/edit
   def edit
     @conference = Conference.find(params[:id])
-    
+
     @workshops = Workshop.where(conference_id: params[:id])
   end
 
