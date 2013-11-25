@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  talker: 
+  name: NAME1
+  talker: TALKER1
 
 two:
-  name: MyString
-  talker: 
+  name: NAME2
+  talker: TALKER2

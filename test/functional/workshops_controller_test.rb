@@ -3,10 +3,7 @@ require 'test_helper'
 class WorkshopsControllerTest < ActionController::TestCase
   setup do
     @workshop = workshops(:one)
-    @update = {
-      :talker       => 'TALKER TEST',
-      :name => 'NAME TEST',
-    }
+  
   end
 
   test "should get index" do
@@ -25,7 +22,7 @@ class WorkshopsControllerTest < ActionController::TestCase
       post :create, workshop: { name: @workshop.name, talker: @workshop.talker }
     end
 
-    assert_redirected_to workshop_path(assigns(:workshop))
+    assert_redirected_to conference_workshop_path(assigns(:workshop))
   end
 
   test "should show workshop" do
@@ -40,7 +37,7 @@ class WorkshopsControllerTest < ActionController::TestCase
 
   test "should update workshop" do
     put :update, id: @workshop, workshop: { name: @workshop.name, talker: @workshop.talker }
-    assert_redirected_to workshop_path(assigns(:workshop))
+    assert_redirected_to conference_workshop_path(assigns(:workshop))
   end
 
   test "should destroy workshop" do
@@ -48,6 +45,6 @@ class WorkshopsControllerTest < ActionController::TestCase
       delete :destroy, id: @workshop
     end
 
-    assert_redirected_to workshops_path
+    assert_redirected_to conference_workshops_path
   end
 end

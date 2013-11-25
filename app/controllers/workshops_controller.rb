@@ -47,9 +47,7 @@ class WorkshopsController < ApplicationController
   # POST /workshops
   # POST /workshops.json
   def create
-    Rails.logger.info "Alarm1"
     @workshop = Workshop.new(params[:workshop])
-Rails.logger.info "Alarm2"
     respond_to do |format|
       if @workshop.save
         format.html { redirect_to conference_workshop_path(:conference_id => @workshop.conference_id, :id => @workshop.id), notice: 'Workshop was successfully created.' }

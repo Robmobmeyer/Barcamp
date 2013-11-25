@@ -3,14 +3,7 @@ require 'test_helper'
 class ConferencesControllerTest < ActionController::TestCase
   setup do
     @conference = conferences(:one)
-    @update = {
-      :name       => 'BARCAMP TEST',
-      :organizer => 'ORGANIZER TEST',
-      :room   => 1,
-      :start_time       => '2013-11-17 10:31:00.000000',
-      :start_date   => '1999-09-19',
-      :session  => 'Session TEST'
-    }
+    @update = conferences(:two)
   end
 
   test "should get index" do
@@ -26,8 +19,8 @@ class ConferencesControllerTest < ActionController::TestCase
 
   test "should create conference" do
     assert_difference('Conference.count') do
-      #post :create, conference: { name: @conference.name, organizer: @conference.organizer, room: @conference.room, session: @conference.session, start_date: @conference.start_date, start_time: @conference.start_time }
-      post :create, :conference => @update
+      post :create, conference: { name: @conference.name, organizer: @conference.organizer, room: @conference.room, session: @conference.session, start_date: @conference.start_date, start_time: @conference.start_time }
+      #post :create, :conference => @update
     end
 
     assert_redirected_to conference_path(assigns(:conference))
