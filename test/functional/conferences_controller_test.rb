@@ -3,7 +3,7 @@ require 'test_helper'
 class ConferencesControllerTest < ActionController::TestCase
   setup do
     @conference = conferences(:one)
-    @update = conferences(:two)
+
   end
 
   test "should get index" do

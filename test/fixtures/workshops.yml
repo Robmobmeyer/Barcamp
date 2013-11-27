@@ -3,7 +3,4 @@
 one:
   name: NAME1
   talker: TALKER1
-
-two:
-  name: NAME2
-  talker: TALKER2
+  conference: one
