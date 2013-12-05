@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  seat: 1
+  name: MyString
+  floor: MyString
+
+two:
+  seat: 1
+  name: MyString
+  floor: MyString

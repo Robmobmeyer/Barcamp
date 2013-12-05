@@ -1,36 +1,15 @@
 class WorkshopsController < ApplicationController
 
 
-  # GET /workshops
-  # GET /workshops.json
-  # def index
-  #    Rails.logger.info "Alarm1"
-  #      @conference_id = params[:conference_id]
-  #   @workshops = Workshop.where(conference_id: params[:conference_id])
-  # Rails.logger.info "Alarm2"
-  #   respond_to do |format|
-  #     format.html # index.html.erb
-  #     format.json { render json: @workshops }
-  #   end
-  #   Rails.logger.info "Alarm3"
-  # end
 
-  # GET /workshops/1
-  # GET /workshops/1.json
   def show
-      
    @workshop = Workshop.find(params[:id])
-   #@conference =  Workshop.find(params[:id])
-  
-   #@workshop = Workshop.where(conference_id: params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @workshop }
     end
   end
 
-  # GET /workshops/new
-  # GET /workshops/new.json
   def new
     @workshop = Workshop.new(conference_id: params[:conference_id])
     respond_to do |format|
@@ -42,9 +21,6 @@ class WorkshopsController < ApplicationController
   # GET /workshops/1/edit
   def edit
     @workshop = Workshop.find(params[:id])
-    #@conference =  Workshop.find(params[:id])
-    #@workshop = Workshop.where(conference_id: params[:id])
-
   end
 
   # POST /workshops
@@ -92,11 +68,11 @@ class WorkshopsController < ApplicationController
   # DELETE /workshops/1
   # DELETE /workshops/1.json
   def destroy
-    Rails.logger.info "Alarm1"
+   
     @workshop = Workshop.find(params[:id])
-        Rails.logger.info "Alarm2"
+       
     @workshop.destroy
-        Rails.logger.info "Alarm3"
+   
 
     respond_to do |format|
       format.html { redirect_to conference_path(@workshop.conference_id) }

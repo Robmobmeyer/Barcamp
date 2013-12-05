@@ -19,7 +19,7 @@ class ConferencesControllerTest < ActionController::TestCase
 
   test "should create conference" do
     assert_difference('Conference.count') do
-      post :create, conference: { name: @conference.name, organizer: @conference.organizer, room: @conference.room, session: @conference.session, start_date: @conference.start_date, start_time: @conference.start_time }
+      post :create, conference: { name: @conference.name, organizer: @conference.organizer, start_date: @conference.start_date, start_time: @conference.start_time }
       #post :create, :conference => @update
     end
 
@@ -37,7 +37,7 @@ class ConferencesControllerTest < ActionController::TestCase
   end
 
   test "should update conference" do
-    put :update, id: @conference, conference: { name: @conference.name, organizer: @conference.organizer, room: @conference.room, session: @conference.session, start_date: @conference.start_date, start_time: @conference.start_time }
+    put :update, id: @conference, conference: { name: @conference.name, organizer: @conference.organizer, start_date: @conference.start_date, start_time: @conference.start_time }
     assert_redirected_to conference_path(assigns(:conference))
   end
 

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Seat:</b>
+  <%= @room.seat %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @room.name %>
+</p>
+
+<p>
+  <b>Floor:</b>
+  <%= @room.floor %>
+</p>
+
+
+<%= link_to 'Back', conference_path(@room.conference_id) %>

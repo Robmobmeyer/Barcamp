@@ -3,15 +3,11 @@
 one:
   name: MyString
   organizer: MyString
-  room: 1
   start_date: 2013-11-06
   start_time: 2013-11-06 00:13:17
-  session: MyString
 
 two:
   name: MyString
   organizer: MyString
-  room: 1
   start_date: 2013-11-06
   start_time: 2013-11-06 00:13:17
-  session: MyString

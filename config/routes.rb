@@ -1,10 +1,15 @@
 Barcamp::Application.routes.draw do
+ 
+
+
   #resources :workshops, only: [:show, :create, :edit, :update, :destroy, :index]
 
 
-  #post "conferences/new"
+ 
+  
   resources :conferences do 
     resources :workshops
+    resources :rooms
   end
 
   #get '/conferences/:id', to: 'conferences#show', as: 'conferences'
