@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<div id="top">
 <h1>
   <%= @conference.name %>
 </h1>
-
 <p>
   <b>organized from:</b>
   <%= @conference.organizer %>
@@ -16,12 +15,52 @@
   <b>Start time:</b>
   <%= @conference.start_time.strftime('%H:%M:%S') %>
 </p>
+ <ul id="Navigation">
+<%= link_to 'Home', conferences_path %> |
+<%= link_to 'add Workshop', new_conference_workshop_path(conference_id: @conference.id) %>  |
+<%= link_to 'add Room', new_conference_room_path(conference_id: @conference.id) %> |
+<%= link_to 'edit conference', edit_conference_path(@conference) %> 
 
+</ul>
+</div>
+
+
+
+
+
+    <!--   <th>Seats</th>
+      <th>Floor</th>
+    </tr> -->
+<% @rooms.each do |room| %>
+
+<table>
+<div id="timeline"> 
+  <p> TIME</p>
+</div>
+
+<div id="room">
   
-<%= link_to 'New Workshop', new_conference_workshop_path(conference_id: @conference.id) %> |
-<%= link_to 'add Room', new_conference_room_path(conference_id: @conference.id) %>
-<%= link_to 'Edit', edit_conference_path(@conference) %> |
-<%= link_to 'Back', conferences_path %>
+    
+    <h2><%= room.name %></h2>
+    <p>Seats: <%= room.seat %></p>
+    <p>Floor: <%= room.floor %></p>
+     
+
+
+
+     <ul id="Navigation">
+    <li><%= link_to 'Show', conference_room_path(@conference, id: room.id) %></li>
+    <li><%= link_to 'Destroy', conference_room_path(@conference, id: room.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
+<% end %>
+
+</table>
+</div>
+
+
+
+
+<div>
 
 <table>
   <tr>
@@ -41,20 +80,6 @@
   </tr>
 <% end %>
 </table>
+</div>
 
-<table>
-    <tr>
-      <th>Name</th>
-      <th>Seats</th>
-      <th>Floor</th>
-    </tr>
-<% @rooms.each do |room| %>
-  <tr>
-    <td><%= room.name %></td>
-    <td><%= room.seat %></td>
-    <td><%= room.floor %></td>
-    <td><%= link_to 'Show', conference_room_path(@conference, id: room.id) %></td>
-    <td><%= link_to 'Destroy', conference_room_path(@conference, id: room.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+
