@@ -14,7 +14,7 @@ class ConferencesController < ApplicationController
   # GET /conferences/1.json
   def show
     @conference = Conference.find(params[:id])
-    @rooms = Room.where(conference_id: params[:id])   
+    @rooms = Room.all  
     @workshops = Workshop.where(conference_id: params[:id])
     respond_to do |format|
       format.html # show.html.erb

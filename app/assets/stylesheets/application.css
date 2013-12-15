@@ -33,14 +33,13 @@ font-size: 35px;
 
 #content{
   
-  
   text-align: center;
   background-image: url(Content2.png)
 
 }
 
 #top {
-  border-width:3px;
+  border-width:1px;
   border-style:solid;
   border-color:black;
 }
@@ -50,13 +49,20 @@ font-size: 35px;
   width: auto; 
   border-style:solid;
   border-color:black;
-  height: 160px;
+  height: 144px;
+  margin-left: 100px;
+}
+#workshop {
+  border-width:3px;
+  border-style:solid;
+  border-color:black;
+  
 }
 
 
 #timeline {
   float: left;
-  height: 160px;
+  height: 144px;
   width: 3em;
   border-width:3px;
   border-style:solid;

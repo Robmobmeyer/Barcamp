@@ -63,8 +63,13 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
 
     respond_to do |format|
-      if @room.update_attributes(params[:room])
-        format.html { redirect_to @room, notice: 'Room was successfully updated.' }
+        if @room.update_attributes(params[:room])
+      
+        format.html do
+          redirect_to conference_room_path(:conference_id => @room.conference_id, 
+                                               :id => @room.id), 
+            notice: 'Workshop was successfully updated.' 
+         end
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

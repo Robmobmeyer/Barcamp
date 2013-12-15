@@ -20,7 +20,7 @@
     <td><%= conference.organizer %></td>
     
     <td><%= conference.start_date %></td>
-    <td><%= conference.start_time %></td>
+    <td><%= conference.start_time.strftime('%H:%M:%S') %></td>
     <td><%= link_to 'Show', conference %></td>
     <td><%= link_to 'Edit', edit_conference_path(conference) %></td>
     <td><%= link_to 'Destroy', conference, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -4,8 +4,10 @@ one:
   seat: 1
   name: MyString
   floor: MyString
+  conference: one
 
 two:
   seat: 1
   name: MyString
   floor: MyString
+  conference: one

@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Room.create(:name => 'Reeperbahn',
+	:seat => '20',
+	:floor => 'MET 5 E')
+
+Room.create(:name => 'Lattenkamp',
+	:seat => '5',
+	:floor => 'MET 5 F')
+
+Room.create(:name => 'St. Georg',
+	:seat => '8',
+	:floor => 'MET 4 A')

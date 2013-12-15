@@ -45,13 +45,12 @@ class WorkshopsController < ApplicationController
   # PUT /workshops/1
   # PUT /workshops/1.json
   def update
-    Rails.logger.info "Alarm1"
+   
     @workshop = Workshop.find(params[:id])
-    #@workshop = Workshop.where(conference_id: params[:id])
-    Rails.logger.info "Alarm2"
+  
     respond_to do |format|
       if @workshop.update_attributes(params[:workshop])
-          Rails.logger.info "Alarm3"
+      
         format.html do
           redirect_to conference_workshop_path(:conference_id => @workshop.conference_id, 
                                                :id => @workshop.id), 

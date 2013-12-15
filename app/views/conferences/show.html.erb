@@ -28,37 +28,47 @@
 
 
 
+
     <!--   <th>Seats</th>
       <th>Floor</th>
     </tr> -->
 <% @rooms.each do |room| %>
-
 <table>
-<div id="timeline"> 
-  <p> TIME</p>
-</div>
 
-<div id="room">
-  
+  <div id="room">
     
     <h2><%= room.name %></h2>
     <p>Seats: <%= room.seat %></p>
     <p>Floor: <%= room.floor %></p>
-     
-
-
+     <p>ID: <%= room.id %></p>
 
      <ul id="Navigation">
-    <li><%= link_to 'Show', conference_room_path(@conference, id: room.id) %></li>
-    <li><%= link_to 'Destroy', conference_room_path(@conference, id: room.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <li><%= link_to 'Show', conference_room_path(@conference, id: room.id) %></li>
+      <li><%= link_to 'Destroy', conference_room_path(@conference, id: room.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <li><%= link_to 'Edit', edit_conference_room_path(@conference, id: room.id) %></li>
     </ul>
+    <div id="workshop">
+     
+    <% @workshops.order("start_time ASC").each do |workshop| %>
+    
+      <ol><h3>Workshop:</h3> <%= workshop.name %> </ol>
+      <ol> <%= workshop.talker %></ol>
+      <ol> <%= workshop.start_time.strftime('%H:%M:%S')  %></ol>
+      <ol> <%= workshop.end_time.strftime('%H:%M:%S')  %> </ol>
+       <%= link_to 'Show', conference_workshop_path(@conference, id: workshop.id) %>
+       <%= link_to 'Edit', edit_conference_workshop_path(@conference, id: workshop.id) %>
+       <%= link_to 'Destroy', conference_workshop_path(@conference, id: workshop.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+    
+    <% end %>
+  </div>
+
 <% end %>
-
+   </div>
 </table>
-</div>
+ 
 
 
-
+<!-- 
 
 <div>
 
@@ -66,14 +76,16 @@
   <tr>
     <th>Name</th>
     <th>Talker</th>
-    <th></th>
-    <th></th>
+    <th>von:</th>
+    <th>bis:</th>
     <th></th>
   </tr>
 <% @workshops.each do |workshop| %>
   <tr>
-    <td><%= workshop.name %></td>
-    <td><%= workshop.talker %></td>
+    <td><%= workshop.name %>  |</td> 
+    <td><%= workshop.talker %>  |</td>
+    <td><%= workshop.start_time %>  |</td>
+    <td><%= workshop.end_time %>  |</td>
     <td><%= link_to 'Show', conference_workshop_path(@conference, id: workshop.id) %></td>
     <td><%= link_to 'Edit', edit_conference_workshop_path(@conference, id: workshop.id) %></td>
     <td><%= link_to 'Destroy', conference_workshop_path(@conference, id: workshop.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -83,3 +95,4 @@
 </div>
 
 
+ -->
